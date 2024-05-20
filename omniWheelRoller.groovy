@@ -27,6 +27,7 @@ CSG generate(){
 	// Stub of a CAD object
 	CSG part = new Cylinder(rollerthickDiameterValue/2, rollerHeightValue).toCSG()
 				.moveToCenterZ()
+				.setColor(javafx.scene.paint.Color.WHITE)
 	return part
 		.setParameter(size)
 		.setRegenerate({generate()})
