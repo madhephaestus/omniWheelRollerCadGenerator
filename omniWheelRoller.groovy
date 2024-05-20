@@ -3,6 +3,7 @@ import java.util.stream.Collectors;
 import com.neuronrobotics.bowlerstudio.vitamins.Vitamins;
 import eu.mihosoft.vrl.v3d.CSG;
 import eu.mihosoft.vrl.v3d.Cube;
+import eu.mihosoft.vrl.v3d.Cylinder
 CSG generate(){
 	String type= "omniWheelRoller"
 	if(args==null)
@@ -21,10 +22,11 @@ CSG generate(){
 	def sourceValue = measurments.source
 	def wheelDiameterValue = measurments.wheelDiameter
 	for(String key:measurments.keySet().stream().sorted().collect(Collectors.toList())){
-		println "omniWheelRoller value "+key+" "+measurments.get(key);
-}
+		//println "omniWheelRoller value "+key+" "+measurments.get(key);
+	}
 	// Stub of a CAD object
-	CSG part = new Cube().toCSG()
+	CSG part = new Cylinder(rollerthickDiameterValue/2, rollerHeightValue).toCSG()
+				.moveToCenterZ()
 	return part
 		.setParameter(size)
 		.setRegenerate({generate()})
